@@ -15,7 +15,19 @@ const routes: Routes = [
   {
     path: 'create',
     loadChildren: () => import('./create/create.module').then( m => m.CreatePageModule)
+  },  {
+    path: 'pulseras-modal',
+    loadChildren: () => import('./pulseras-modal/pulseras-modal.module').then( m => m.PulserasModalPageModule)
   },
+  {
+    path: 'productos-modal',
+    loadChildren: () => import('./productos-modal/productos-modal.module').then( m => m.ProductosModalPageModule)
+  },
+  {
+    path: 'ordenes-modal',
+    loadChildren: () => import('./ordenes-modal/ordenes-modal.module').then( m => m.OrdenesModalPageModule)
+  },
+
 ];
 
 @NgModule({

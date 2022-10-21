@@ -1,14 +1,33 @@
 import { Component } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
+import { Pulseras, PulserasService } from '../services/pulseras.service';
+import { Productos, ProductosService } from '../services/productos.service';
+import { Ordenes, OrdenesService } from '../services/ordenes.service';
+import { OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-create',
   templateUrl: './create.page.html',
   styleUrls: ['./create.page.scss'],
 })
-export class CreatePage {
+export class CreatePage implements OnInit {
+  pulseras: Pulseras[];
+  productos: Productos[];
+  ordenes: Ordenes[];
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private service: PulserasService, private serviceP: ProductosService, private serviceO: OrdenesService) { }
+
+  ngOnInit(): void {
+    this.service.getAll().subscribe(response => {
+      this.pulseras = response;
+    })
+    this.serviceP.getAll().subscribe(responseP => {
+      this.productos = responseP;
+    })
+    this.serviceO.getAll().subscribe(responseO => {
+      this.ordenes = responseO;
+    })
+  }
 
   onCreate() {
     // Do this on service. But for this demo lets do here

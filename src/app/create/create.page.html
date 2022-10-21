@@ -18,7 +18,30 @@
     <ion-card-content>
       App para gestionar la cuenta de una pulsera de un cliente.
     </ion-card-content>
+    <ion-list>
+      <h1>Pulseras</h1>
+      <ion-item *ngFor="let pulseras of pulseras">
+        <ion-label>
+          <h3>{{pulseras.id}}</h3>
+        </ion-label>
+      </ion-item>
+      <!-- <iom-item-options side="end">
+        <ion-item-option>
+          <ion-icon name="trash"></ion-icon>
+        </ion-item-option>
+      </iom-item-options> -->
+      <h1>Productos</h1>
+      <ion-item *ngFor="let productos of productos">
+        <ion-label>
+          <h3>{{productos.nombre}}</h3>
+        </ion-label>
+      </ion-item>
+      <h1>Ordenes</h1>
+      <ion-item *ngFor="let ordenes of ordenes">
+        <ion-label>
+          <h3>{{ordenes.id}}</h3>
+        </ion-label>
+      </ion-item>
+    </ion-list>
   </ion-card>
-  
-  
 </ion-content>
