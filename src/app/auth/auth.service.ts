@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class AuthService {
-  private url = 'https://php-appbar-api.herokuapp.com/api/';
+  private url = 'https://barapis.ddns.net/api/api/';
   constructor(private http: HttpClient) { }
 
   register(user: User) {

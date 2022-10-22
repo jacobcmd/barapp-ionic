@@ -13,7 +13,7 @@ export interface Ordenes {
   providedIn: 'root'
 })
 export class OrdenesService {
-  private url = 'http://198.251.70.101/api/api/ordenes';
+  private url = 'https://barapis.ddns.net/api/api/ordenes';
 
   constructor(private http: HttpClient) { }
 

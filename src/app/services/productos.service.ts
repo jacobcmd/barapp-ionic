@@ -13,7 +13,7 @@ export interface Productos {
 })
 
 export class ProductosService {
-  private url = 'http://198.251.70.101/api/api/productos';
+  private url = 'https://barapis.ddns.net/api/api/productos';
 
   constructor(private http: HttpClient) { }
 
