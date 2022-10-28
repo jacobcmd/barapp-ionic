@@ -4,6 +4,7 @@ import { Pulseras, PulserasService } from '../services/pulseras.service';
 import { Productos, ProductosService } from '../services/productos.service';
 import { Ordenes, OrdenesService } from '../services/ordenes.service';
 import { OnInit } from '@angular/core';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-create',
@@ -15,7 +16,13 @@ export class CreatePage implements OnInit {
   productos: Productos[];
   ordenes: Ordenes[];
 
-  constructor(private http: HttpClient, private service: PulserasService, private serviceP: ProductosService, private serviceO: OrdenesService) { }
+  constructor(
+    private http: HttpClient, 
+    private service: PulserasService, 
+    private serviceP: ProductosService, 
+    private serviceO: OrdenesService,
+    private alertCtrl: AlertController
+    ) { }
 
   ngOnInit(): void {
     this.service.getAll().subscribe(response => {
@@ -27,6 +34,23 @@ export class CreatePage implements OnInit {
     this.serviceO.getAll().subscribe(responseO => {
       this.ordenes = responseO;
     })
+  }
+
+  removeProducto(id: string){
+    this.alertCtrl.create({
+      header: 'Eliminar',
+      message: '¿Estas seguro que quieres eliminar el producto?',
+      buttons: [{
+        text: 'Si',
+        handler: () => {
+          this.service.remove(id).subscribe(() => {
+            this.productos = this.productos.filter(std => std.id !== id);
+          });
+        }
+      }, 
+    { text: 'No' } 
+  ]
+}).then(alertEl => alertEl.present());
   }
 
   onCreate() {
