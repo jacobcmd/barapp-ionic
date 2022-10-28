@@ -14,9 +14,10 @@
     </ion-card-header>
 
     <ion-card-content>
+      <h1>Productos</h1>
+      <ion-button>Nuevo Producto</ion-button>
       <ion-list *ngFor="let productos of productos">
         <ion-item-sliding>
-          <!-- <h1>Productos</h1> -->
           <ion-item>
             <ion-label>
               <h3>{{productos.nombre}}</h3>
