@@ -36,23 +36,6 @@ export class CreatePage implements OnInit {
     })
   }
 
-  removeProducto(id: string){
-    this.alertCtrl.create({
-      header: 'Eliminar',
-      message: '¿Estas seguro que quieres eliminar el producto?',
-      buttons: [{
-        text: 'Si',
-        handler: () => {
-          this.service.remove(id).subscribe(() => {
-            this.productos = this.productos.filter(std => std.id !== id);
-          });
-        }
-      }, 
-    { text: 'No' } 
-  ]
-}).then(alertEl => alertEl.present());
-  }
-
   onCreate() {
     // Do this on service. But for this demo lets do here
     const token = localStorage.getItem('token');

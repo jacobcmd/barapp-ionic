@@ -8,14 +8,8 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-  <ion-card>
-    <ion-card-header>
-      <ion-card-subtitle></ion-card-subtitle>
-    </ion-card-header>
-
-    <ion-card-content>
       <h1>Productos</h1>
-      <ion-button>Nuevo Producto</ion-button>
+      <!-- <ion-button>Nuevo Producto</ion-button> -->
       <ion-list *ngFor="let productos of productos">
         <ion-item-sliding>
           <ion-item>
@@ -27,13 +21,10 @@
             <ion-item-option color="danger" (click)="removeProducto(productos.id)">
               <ion-icon name="trash"></ion-icon>
             </ion-item-option>
-            <ion-item-option color="" (click)="removeProducto(productos.id)">
+            <!-- <ion-item-option color="primary" (click)="updateProducto(Productos.id)">
               <ion-icon name="create-outline"></ion-icon>
-            </ion-item-option>
+            </ion-item-option> -->
           </ion-item-options>
         </ion-item-sliding>
       </ion-list>  
-    </ion-card-content>
-  </ion-card>
-
 </ion-content>
