@@ -7,15 +7,9 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-card>
-    <ion-card-header>
-      <ion-card-subtitle></ion-card-subtitle>
-    </ion-card-header>
-
-    <ion-card-content>
+<ion-content class="ion-padding">
       <h1>Pulseras</h1>
-      <ion-button>Nueva Pulsera</ion-button>
+      <!-- <ion-button>Nueva Pulsera</ion-button> -->
       <ion-list *ngFor="let pulseras of pulseras">
         <ion-item-sliding>
           <ion-item>
@@ -24,13 +18,13 @@
             </ion-label>
           </ion-item>
           <ion-item-options side="end">
-            <ion-item-option color="danger" (click)="removePulseras(pulseras.id)">
+            <ion-item-option color="danger" (click)="removePulsera(pulsera.id)">
               <ion-icon name="trash"></ion-icon>
             </ion-item-option>
-            <ion-item-option color="" (click)="updatePulseras(pulseras.id)">
+            <!-- <ion-item-option color="primary" (click)="updatePulsera(pulsera.id)">
               <ion-icon name="create-outline"></ion-icon>
-            </ion-item-option>
+            </ion-item-option> -->
           </ion-item-options>
         </ion-item-sliding>
       </ion-list>  
-    </ion-card-content>
+</ion-content>
