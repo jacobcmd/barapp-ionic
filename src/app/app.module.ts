@@ -10,10 +10,12 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { NewProductosPage } from './new-productos/new-productos.page';
+import { NewPulserasPage } from './new-pulseras/new-pulseras.page';
 
 @NgModule({
-  declarations: [AppComponent],
-  entryComponents: [],
+  declarations: [AppComponent, NewProductosPage, NewPulserasPage],
+  entryComponents: [NewProductosPage, NewPulserasPage],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),

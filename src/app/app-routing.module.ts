@@ -15,7 +15,8 @@ const routes: Routes = [
   {
     path: 'create',
     loadChildren: () => import('./create/create.module').then( m => m.CreatePageModule)
-  },  {
+  },
+  {
     path: 'pulseras-modal',
     loadChildren: () => import('./pulseras-modal/pulseras-modal.module').then( m => m.PulserasModalPageModule)
   },
@@ -27,6 +28,14 @@ const routes: Routes = [
     path: 'ordenes-modal',
     loadChildren: () => import('./ordenes-modal/ordenes-modal.module').then( m => m.OrdenesModalPageModule)
   },
+  {
+    path: 'new-productos',
+    loadChildren: () => import('./new-productos/new-productos.module').then( m => m.NewProductosPageModule)
+  },  {
+    path: 'new-pulseras',
+    loadChildren: () => import('./new-pulseras/new-pulseras.module').then( m => m.NewPulserasPageModule)
+  },
+
 
 ];
 

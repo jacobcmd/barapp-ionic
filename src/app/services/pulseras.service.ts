@@ -25,12 +25,12 @@ private url = 'https://barapis.ddns.net/api/api/pulceras';
     return this.http.get<Pulseras>(this.url + '/' + id);
   }
 
-  create(pulceras: Pulseras){
-    return this.http.post(this.url, pulceras);
+  create(pulseras: Pulseras){
+    return this.http.post(this.url, pulseras);
   }
 
-  update(pulceras: Pulseras, id: string){
-    return this.http.put(this.url + '/' + id, pulceras);
+  update(pulseras: Pulseras, id: string){
+    return this.http.put(this.url + '/' + id, pulseras);
   }
 
   remove(id: string){

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController } from '@ionic/angular';
+import { AlertController, ModalController } from '@ionic/angular';
+import { NewProductosPage } from '../new-productos/new-productos.page';
 import { Productos, ProductosService } from '../services/productos.service';
 
 @Component({
@@ -10,11 +11,31 @@ import { Productos, ProductosService } from '../services/productos.service';
 export class ProductosModalPage implements OnInit {
   productos: Productos[];
 
-  constructor(private serviceP: ProductosService, private alertCtrl: AlertController) { }
+  constructor(
+    private serviceP: ProductosService, 
+    private alertCtrl: AlertController,
+    private modalCtrl: ModalController
+    ) { }
 
   ngOnInit() {
     this.serviceP.getAll().subscribe(responseP => {
       this.productos = responseP;
+    });
+  }
+
+  addProducto() {
+    this.modalCtrl
+    .create({
+      component: NewProductosPage
+    })
+    .then(modal => {
+      modal.present();
+      return modal.onDidDismiss();
+    })
+    .then(({ data, role }) => {
+      if (role === 'created'){
+        this.productos.push();
+      }
     });
   }
 
@@ -33,6 +54,26 @@ export class ProductosModalPage implements OnInit {
     { text: 'No' } 
   ]
 }).then(alertEl => alertEl.present());
+  }
+
+  updateProducto(producto: Productos){
+    this.modalCtrl
+    .create({
+      component: NewProductosPage,
+      componentProps: { producto }
+    })
+    .then(modal => {
+      modal.present();
+      return modal.onDidDismiss();
+    })
+    .then(({ data, role }) => {
+      this.productos = this.productos.filter(std => {
+        if(data.id === std.id){
+          return data;
+        }
+        return std;
+      });
+    });
   }
 
 }
