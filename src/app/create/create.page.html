@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Create</ion-title>
+    <ion-title>Home</ion-title>
     <ion-buttons slot="start">
       <ion-menu-button menu="main-menu"></ion-menu-button>
     </ion-buttons>
@@ -8,14 +8,11 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-
   <ion-card>
-    <ion-card-header>
-      <ion-card-subtitle>Bienvenido</ion-card-subtitle>
-      <ion-card-title>App Bar</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      App para gestionar la cuenta de una pulsera de un cliente.
-    </ion-card-content>
+    <ion-item>
+      <ion-label position="floating">Buscar pulsera</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+    <ion-button routerLink="/login" expand="block">Buscar</ion-button>
   </ion-card>
 </ion-content>

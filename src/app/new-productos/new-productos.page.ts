@@ -45,5 +45,4 @@ export class NewProductosPage implements OnInit {
       }); 
     }
   }
-
 }

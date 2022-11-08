@@ -18,7 +18,7 @@ export class NewPulserasPage implements OnInit {
 
   constructor(
     private modalCtrl : ModalController,
-    private service : PulserasService
+    private serviceP : PulserasService
   ) { }
 
   ngOnInit() {
@@ -35,12 +35,12 @@ export class NewPulserasPage implements OnInit {
   onSubmit(form: NgForm){
     const pulsera = form.value;
     if(this.isUpdate){
-      this.service.update(pulsera, this.pulsera.id).subscribe(() => {
+      this.serviceP.update(pulsera, this.pulsera.id).subscribe(() => {
         pulsera.id = this.pulsera.id;
         this.modalCtrl.dismiss(pulsera, 'updated');
       });
     } else {
-      this.service.create(pulsera).subscribe(response => {
+      this.serviceP.create(pulsera).subscribe(response => {
         this.modalCtrl.dismiss(response, 'created');
       }); 
     }
