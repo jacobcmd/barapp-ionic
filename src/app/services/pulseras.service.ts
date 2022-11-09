@@ -13,7 +13,7 @@ export interface Pulseras {
   providedIn: 'root'
 })
 export class PulserasService {
-private url = 'https://barapis.ddns.net/api/api/pulceras';
+private url = 'https://api-appbar-v2-production.up.railway.app/api/pulseras';
 
   constructor(private http: HttpClient) { }
 

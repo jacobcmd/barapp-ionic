@@ -12,10 +12,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { NewProductosPage } from './new-productos/new-productos.page';
 import { NewPulserasPage } from './new-pulseras/new-pulseras.page';
+import { NewOrdenesPage } from './new-ordenes/new-ordenes.page';
 
 @NgModule({
-  declarations: [AppComponent, NewProductosPage, NewPulserasPage],
-  entryComponents: [NewProductosPage, NewPulserasPage],
+  declarations: [AppComponent, NewProductosPage, NewPulserasPage, NewOrdenesPage],
+  entryComponents: [NewProductosPage, NewPulserasPage, NewOrdenesPage],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),

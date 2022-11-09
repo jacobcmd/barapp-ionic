@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title> Ordenes </ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form>
+    <ion-item *ngFor="let ordenes of ordenes">
+      <ion-label position="floating">{{ordenes.value}}</ion-label>
+    </ion-item>
+  </form>
+</ion-content>
+

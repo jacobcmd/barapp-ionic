@@ -4,7 +4,8 @@ import { Pulseras, PulserasService } from '../services/pulseras.service';
 import { Productos, ProductosService } from '../services/productos.service';
 import { Ordenes, OrdenesService } from '../services/ordenes.service';
 import { OnInit } from '@angular/core';
-import { AlertController } from '@ionic/angular';
+import { AlertController, ModalController } from '@ionic/angular';
+import { NewOrdenesPage } from '../new-ordenes/new-ordenes.page';
 
 @Component({
   selector: 'app-create',
@@ -15,13 +16,15 @@ export class CreatePage implements OnInit {
   pulseras: Pulseras[];
   productos: Productos[];
   ordenes: Ordenes[];
+  searchedOrdenes: any;
 
   constructor(
     private http: HttpClient, 
     private service: PulserasService, 
     private serviceP: ProductosService, 
     private serviceO: OrdenesService,
-    private alertCtrl: AlertController
+    private alertCtrl: AlertController,
+    private modalCtrl: ModalController
     ) { }
 
   ngOnInit(): void {
@@ -44,6 +47,28 @@ export class CreatePage implements OnInit {
     });
 
     this.http.post(`http://localhost/auth_app/api/create`, 'body', { headers }).subscribe(console.log);
+  }
+
+  buscarOrden(event) {
+   const text = event.target.value;
+   this.searchedOrdenes = this.ordenes;
+   if(text && text.trim() != ''){
+    this.searchedOrdenes = this.searchedOrdenes.filter((id: any) => {
+      this.modalCtrl
+    .create({
+      component: NewOrdenesPage
+    })
+    .then(modal => {
+      modal.present();
+      return modal.onDidDismiss();
+    })
+    .then(({ data, role }) => {
+      if (role === 'created'){
+        this.ordenes.push();
+      }
+    });
+    });
+   }
   }
 
 }

@@ -35,6 +35,10 @@ const routes: Routes = [
     path: 'new-pulseras',
     loadChildren: () => import('./new-pulseras/new-pulseras.module').then( m => m.NewPulserasPageModule)
   },
+  {
+    path: 'new-ordenes',
+    loadChildren: () => import('./new-ordenes/new-ordenes.module').then( m => m.NewOrdenesPageModule)
+  },
 
 
 ];
