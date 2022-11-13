@@ -23,7 +23,8 @@
     </ion-item>
     <ion-item>
       <ion-label position="floating">Password</ion-label>
-      <ion-input type="password" required formControlName="password"></ion-input>
+      <ion-input type="password" [(ngModel)]="password" required formControlName="password"></ion-input>
+      <div id="wrong-password"></div>
     </ion-item>
     <ion-button type="submit" class="ion-margin-top" expand="block" [disabled]="form.invalid">Register</ion-button>
   </form>
