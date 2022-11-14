@@ -6,6 +6,7 @@ import { Ordenes, OrdenesService } from '../services/ordenes.service';
 import { OnInit } from '@angular/core';
 import { AlertController, ModalController } from '@ionic/angular';
 import { NewOrdenesPage } from '../new-ordenes/new-ordenes.page';
+import { OrdenesModalPage } from '../ordenes-modal/ordenes-modal.page';
 
 @Component({
   selector: 'app-create',
@@ -47,6 +48,22 @@ export class CreatePage implements OnInit {
     });
 
     this.http.post(`http://localhost/auth_app/api/create`, 'body', { headers }).subscribe(console.log);
+  }
+
+  addOrden() {
+    this.modalCtrl
+    .create({
+      component: OrdenesModalPage
+    })
+    .then(modal => {
+      modal.present();
+      return modal.onDidDismiss();
+    })
+    .then(({ data, role }) => {
+      if (role === 'created'){
+        this.ordenes.push();
+      }
+    });
   }
 
   buscarOrden(event) {

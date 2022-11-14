@@ -13,10 +13,11 @@ import { FormsModule } from '@angular/forms';
 import { NewProductosPage } from './new-productos/new-productos.page';
 import { NewPulserasPage } from './new-pulseras/new-pulseras.page';
 import { NewOrdenesPage } from './new-ordenes/new-ordenes.page';
+import { OrdenesModalPage } from './ordenes-modal/ordenes-modal.page';
 
 @NgModule({
-  declarations: [AppComponent, NewProductosPage, NewPulserasPage, NewOrdenesPage],
-  entryComponents: [NewProductosPage, NewPulserasPage, NewOrdenesPage],
+  declarations: [AppComponent, NewProductosPage, NewPulserasPage, NewOrdenesPage, OrdenesModalPage],
+  entryComponents: [NewProductosPage, NewPulserasPage, NewOrdenesPage, OrdenesModalPage],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),

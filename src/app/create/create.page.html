@@ -6,6 +6,13 @@
     </ion-buttons>
   </ion-toolbar>
   <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button color="primary" (click)="addOrden()">
+        Nueva Orden
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar>
     <ion-searchbar placeholder="Buscar" animated (ionChange)="buscarOrden($event)"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
