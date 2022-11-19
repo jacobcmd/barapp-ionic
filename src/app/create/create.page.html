@@ -12,13 +12,30 @@
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
-  <ion-toolbar>
-    <ion-searchbar placeholder="Buscar" animated (ionChange)="buscarOrden($event)"></ion-searchbar>
-  </ion-toolbar>
+  <form>
+    <ion-item>
+      <ion-label>Buscar pulsera: </ion-label>
+      <!-- <ion-button expand="full" (click)="scan()">scanear</ion-button> -->
+      <!-- <p *ngIf="id">code: {{id}}</p>
+      <p>code: {{id}}</p> -->
+      <ion-input type="text" [(ngModel)]="id" name="title"></ion-input>
+    </ion-item>
+    <ion-buttons slot="start">
+    <ion-button (click)="buscarPulsera()" color="primary">Buscar</ion-button>
+  </ion-buttons>
+  </form>
 </ion-header>
 
 <ion-content class="ion-padding">
-  <ion-card>
-
+  <ion-card *ngIf="pulsera">
+    <ion-label>
+      <h2>Id pulsera: {{pulsera[0].id_pulsera}}</h2>
+    </ion-label>
+    <ion-label>
+      <h2>Total: ${{pulsera[0].total}}</h2>
+    </ion-label>
+    <ion-label>
+      <h2>Pagado: {{pulsera[0].pagado}}</h2>
+    </ion-label>
   </ion-card>
 </ion-content>

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { HttpHeaders, HttpClient } from '@angular/common/http';
+import { HttpHeaders, HttpClient, HttpParams } from '@angular/common/http';
 import { Pulseras, PulserasService } from '../services/pulseras.service';
 import { Productos, ProductosService } from '../services/productos.service';
 import { Ordenes, OrdenesService } from '../services/ordenes.service';
@@ -7,17 +7,26 @@ import { OnInit } from '@angular/core';
 import { AlertController, ModalController } from '@ionic/angular';
 import { NewOrdenesPage } from '../new-ordenes/new-ordenes.page';
 import { OrdenesModalPage } from '../ordenes-modal/ordenes-modal.page';
+import { FormControl } from '@angular/forms';
+/* import { BarcodeScanner } from '@awesome-cordova-plugins/barcode-scanner/ngx'; */
+
 
 @Component({
   selector: 'app-create',
   templateUrl: './create.page.html',
   styleUrls: ['./create.page.scss'],
+  /* providers:[
+    BarcodeScanner
+  ] */
 })
 export class CreatePage implements OnInit {
   pulseras: Pulseras[];
   productos: Productos[];
   ordenes: Ordenes[];
   searchedOrdenes: any;
+  control = new FormControl();
+  id : string;
+  pulsera : Pulseras;
 
   constructor(
     private http: HttpClient, 
@@ -25,7 +34,8 @@ export class CreatePage implements OnInit {
     private serviceP: ProductosService, 
     private serviceO: OrdenesService,
     private alertCtrl: AlertController,
-    private modalCtrl: ModalController
+    private modalCtrl: ModalController,
+    /* private barcodeScanner: BarcodeScanner */
     ) { }
 
   ngOnInit(): void {
@@ -41,7 +51,6 @@ export class CreatePage implements OnInit {
   }
 
   onCreate() {
-    // Do this on service. But for this demo lets do here
     const token = localStorage.getItem('token');
     const headers = new HttpHeaders({
       Authorization: 'Bearer ' + token
@@ -66,26 +75,21 @@ export class CreatePage implements OnInit {
     });
   }
 
-  buscarOrden(event) {
-   const text = event.target.value;
-   this.searchedOrdenes = this.ordenes;
-   if(text && text.trim() != ''){
-    this.searchedOrdenes = this.searchedOrdenes.filter((id: any) => {
-      this.modalCtrl
-    .create({
-      component: NewOrdenesPage
-    })
-    .then(modal => {
-      modal.present();
-      return modal.onDidDismiss();
-    })
-    .then(({ data, role }) => {
-      if (role === 'created'){
-        this.ordenes.push();
-      }
+  buscarPulsera(){
+    console.log("Holii");
+    this.service.get(this.id).subscribe(response => {
+      this.pulsera = response;
+      console.log(this.pulsera);
     });
-    });
-   }
   }
 
+  /* scan(){
+    this.barcodeScanner.scan().then(barcodeData => {
+      this.id=barcodeData.text;      
+      console.log('code:', this.id)
+     }).catch(err => {
+         console.log('Error', err);
+     });
+  } */
+  
 }

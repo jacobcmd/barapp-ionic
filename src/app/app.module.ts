@@ -9,7 +9,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NewProductosPage } from './new-productos/new-productos.page';
 import { NewPulserasPage } from './new-pulseras/new-pulseras.page';
 import { NewOrdenesPage } from './new-ordenes/new-ordenes.page';
@@ -23,7 +23,8 @@ import { OrdenesModalPage } from './ordenes-modal/ordenes-modal.page';
     IonicModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     StatusBar,

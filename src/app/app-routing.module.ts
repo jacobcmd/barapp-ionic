@@ -31,7 +31,8 @@ const routes: Routes = [
   {
     path: 'new-productos',
     loadChildren: () => import('./new-productos/new-productos.module').then( m => m.NewProductosPageModule)
-  },  {
+  },
+  {
     path: 'new-pulseras',
     loadChildren: () => import('./new-pulseras/new-pulseras.module').then( m => m.NewPulserasPageModule)
   },
