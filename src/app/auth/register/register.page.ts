@@ -76,8 +76,7 @@ export class RegisterPage {
               <li>Al menos una letra mayúscula</li>
               <li> Al menos una letra mínuscula</li>
               <li>Al menos un número</li>
-              <li>No espacios en blanco</li>
-              <li>Al menos 1 caracter especial</li>
+              <li>Al menos 1 caracter especial que esté entre los siguientes @$?¡!*#/-_</li>
           </ul>
     `;
     setTimeout(() => {
@@ -86,14 +85,14 @@ export class RegisterPage {
   }
 
   functionToValitePasswordFormat(password) {
-    let passRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])([A-Za-z\d$@$!%*?&]|[^ ]){8,15}$/;
+    //let passRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])([A-Za-z\d$@$!%*?&]|[^ ]){8,15}$/;
+    let passRegex = /^(?=(?:.*\d){1})(?=(?:.*[A-Z]){1})(?=(?:.*[a-z]){1})(?=(?:.*[@$?¡!*#/\-_]){1})\S{8,16}$/;
     /*
         Minimo 8 caracteres
-        Maximo 15 caracteres
+        Maximo 16 caracteres
         Al menos una letra mayúscula
         Al menos una letra minuscula
         Al menos un dígito
-        No espacios en blanco
         Al menos 1 caracter especial
     */
     if (passRegex.test(password)) {

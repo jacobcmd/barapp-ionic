@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-root',
@@ -35,4 +36,23 @@ export class AppComponent {
       this.router.navigateByUrl('/home');
     }
   }
+
+  closeSession(){
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: "Se cerrará la presente sesión, tendrás que autenticarte nuevamente",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, cerrar sesión',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        localStorage.removeItem("token");
+        this.router.navigateByUrl('/home');
+      }
+    });
+  } 
+
 }
