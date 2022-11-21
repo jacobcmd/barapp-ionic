@@ -72,7 +72,7 @@ export class RegisterPage {
     showMessage.innerHTML = `
           <ul>
               <li>Mínimo 8 caracteres</li>
-              <li>Máximo 15 caracteres</li>
+              <li>Máximo 16 caracteres</li>
               <li>Al menos una letra mayúscula</li>
               <li> Al menos una letra mínuscula</li>
               <li>Al menos un número</li>
